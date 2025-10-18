@@ -18,18 +18,21 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <Briefcase className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">JobPortal</span>
+            <span className="text-xl font-bold text-gray-900 ">JobPortal</span>
           </div>
 
           {/* Navigation Link - Hidden on Mobile */}
           <nav className="hidden md:flex items-center space-x-8">
             <a
               onClick={() => navigate("/find-jobs")}
-              className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              className="text-gray-600 hover:text-gray-900 transition-colors font-medium cursor-pointer"
             >
               Find Jobs
             </a>
@@ -41,7 +44,7 @@ const Header = () => {
                     : "/login"
                 )
               }
-              className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
+              className="text-gray-600 hover:text-gray-900 transition-colors font-medium cursor-pointer"
             >
               For Employer
             </a>
@@ -51,7 +54,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             {isAuthenticated ? (
               <div className="flex items-center space-x-3">
-                <span className="text-gray-700">Welcome, {user?.fullName}</span>
+                <span className="text-gray-600">Welcome, {user?.fullName}</span>
                 <a
                   href={
                     user?.role === "employer"
