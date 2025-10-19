@@ -9,6 +9,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useState } from "react";
+import { cleanErrors, validateEmail } from "../../utils/helper";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -23,50 +24,6 @@ const Login = () => {
     showPassword: false,
     success: false,
   });
-
-  const validateEmail = (email) => {
-    if (!email.trim()) return ["Email is required"];
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return ["please enter a valid email address"];
-    return [];
-  };
-
-  const validatePassword = (password) => {
-    //return failedRules.length > 0 ? failedRules.join(", ") : "";
-    // if (!password) {
-    //   return "Password is required";
-    // }
-    // if (!/.{8,}/.test(password)) {
-    //   return "Must be at least 8 characters";
-    // }
-    // if (!/[a-z]/.test(password)) {
-    //   return "Must include a lowercase letter";
-    // }
-    // if (!/[A-Z]/.test(password)) {
-    //   return "Must include an uppercase letter";
-    // }
-    // if (!/\d/.test(password)) {
-    //   return "Must include a number";
-    // }
-    // if (!/[@$!%*?&]/.test(password)) {
-    //   return "Must include a special character (@ $ ! % * ? &)";
-    // }
-    // return "";
-    const passwordRules = [
-      { regex: /.{8,}/, message: "Must be at least 8 characters" },
-      { regex: /[a-z]/, message: "Must include a lowercase letter" },
-      { regex: /[A-Z]/, message: "Must include an uppercase letter" },
-      { regex: /\d/, message: "Must include a number" },
-      {
-        regex: /[@$!%*?&]/,
-        message: "Must include a special character (@$!%*?&)",
-      },
-    ];
-    if (!password) return ["Password is required"];
-    return passwordRules
-      .filter((rule) => !rule.regex.test(password))
-      .map((rule) => rule.message);
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -84,20 +41,9 @@ const Login = () => {
     }
   };
 
-  const cleanErrors = (errors) => {
-    const cleaned = { ...errors };
-    Object.keys(cleaned).forEach((key) => {
-      const value = cleaned[key];
-      if (
-        value === "" ||
-        value === null ||
-        value === undefined ||
-        (Array.isArray(value) && value.length === 0)
-      ) {
-        delete cleaned[key];
-      }
-    });
-    return cleaned;
+  const validatePassword = (password) => {
+    if (!password) return ["Password is required"];
+    return [];
   };
 
   const validateForm = () => {
@@ -106,19 +52,6 @@ const Login = () => {
       password: validatePassword(formData.password),
     };
 
-    // remove empty errors
-    // Object.keys(errors).forEach((key) => {
-    //   // if (!errors[key] ) delete errors[key];
-    //   const value = errors[key];
-    //   if (
-    //     value === "" ||
-    //     value === null ||
-    //     value === undefined ||
-    //     (Array.isArray(value) && value.length === 0)
-    //   ) {
-    //     delete errors[key];
-    //   }
-    // });
     const cleanedErrors = cleanErrors(rawErrors);
 
     setFormState((prev) => ({ ...prev, errors: cleanedErrors }));
@@ -160,7 +93,7 @@ const Login = () => {
             Welcome Back!
           </h2>
           <p className="text-gray-600 mb-4">
-            You have been successfully logged in
+            You have been successfully logged In
           </p>
           <div className="animate-spin w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full mx-auto" />
           <p className="text-gray-500 mt-2">
@@ -193,7 +126,7 @@ const Login = () => {
           {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address
+              Email Address <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -219,7 +152,7 @@ const Login = () => {
           {/* Password */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Password
+              Password <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -234,7 +167,6 @@ const Login = () => {
                     : "border-gray-300"
                 } focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="Enter password"
-                autoComplete="current-password"
               />
               <button
                 type="button"
@@ -253,7 +185,7 @@ const Login = () => {
                 )}
               </button>
             </div>
-            {Array.isArray(formState.errors.password) && (
+            {/* {Array.isArray(formState.errors.password) && (
               <ul>
                 {formState.errors.password.map((msg, idx) => (
                   <li
@@ -264,15 +196,14 @@ const Login = () => {
                   </li>
                 ))}
               </ul>
-            )}
-            {/* {formState.errors.password && (
+            )} */}
+            {formState.errors.password && (
               <p className="text-red-500 text-sm mt-1 flex items-center">
                 <AlertCircle className="w-4 h-4 mr-1" />{" "}
                 {formState.errors.password}
               </p>
-            )} */}
+            )}
           </div>
-
           {/* submit error */}
           {formState.errors.submit && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-3">
@@ -282,12 +213,11 @@ const Login = () => {
               </p>
             </div>
           )}
-
           {/* submit button */}
           <button
             type="submit"
             disabled={formState.loading}
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 cursor-pointer"
           >
             {formState.loading ? (
               <>
