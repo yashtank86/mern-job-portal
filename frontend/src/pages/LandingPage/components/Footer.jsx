@@ -23,10 +23,12 @@ const Footer = () => {
             {/* Copyrights */}
             <div className="space-y-2">
               <p className={`text-sm text-gray-600`}>
-                {`\u00A9`} {new Date().getFullYear()} Job Portal, India, Inc.
-                All rights reversed.
+                {`\u00A9`} {new Date().getFullYear()} JobPortal, India. All
+                rights reversed.
               </p>
-              {/* <p className={`text-xs text-gray-500`}>Made With Happy Coding</p> */}
+              <p className={`text-xs text-gray-500 cursor-pointer`}>
+                Privacy Policy | Terms of Service
+              </p>
             </div>
           </div>
         </div>
