@@ -8,7 +8,8 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const jobsRoutes = require("./routes/jobRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
-const savedJobRoutes = require("./routes/savedJobRoutes");
+const savedJobsRoutes = require("./routes/savedJobsRoutes");
+const analyticsRoutes = require("./routes/analyticsRoutes");
 
 const app = express();
 
@@ -32,7 +33,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/jobs", jobsRoutes);
 app.use("/api/applications", applicationRoutes);
-app.use("/api/save-jobs", savedJobRoutes);
+app.use("/api/save-jobs", savedJobsRoutes);
+app.use("/api/analytics", analyticsRoutes);
 
 // serve uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), {}));
