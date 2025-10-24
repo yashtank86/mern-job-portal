@@ -5,6 +5,10 @@ const path = require("path");
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+const jobsRoutes = require("./routes/jobRoutes");
+const applicationRoutes = require("./routes/applicationRoutes");
+const savedJobRoutes = require("./routes/savedJobRoutes");
 
 const app = express();
 
@@ -24,7 +28,11 @@ connectDB();
 app.use(express.json());
 
 // routes
-//app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/jobs", jobsRoutes);
+app.use("/api/applications", applicationRoutes);
+app.use("/api/save-jobs", savedJobRoutes);
 
 // serve uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), {}));
