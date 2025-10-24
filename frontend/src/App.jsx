@@ -20,10 +20,11 @@ import JobPostingForm from "./pages/Employer/JobPostingForm";
 import ApplicationViewer from "./pages/Employer/ApplicationViewer";
 import ManageJobs from "./pages/Employer/ManageJobs";
 import EmployerProfilePage from "./pages/Employer/EmployerProfilePage";
+import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <Routes>
           {/* Public Routes */}
@@ -57,7 +58,7 @@ const App = () => {
           },
         }}
       />
-    </>
+    </AuthProvider>
   );
 };
 

@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
 
 const Header = () => {
-  const isAuthenticated = true;
-  const user = { fullName: "lucky", role: "employer" };
+  const {user, isAuthenticated} = useAuth()
   const navigate = useNavigate();
 
   return (
@@ -54,7 +54,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             {isAuthenticated ? (
               <div className="flex items-center space-x-3">
-                <span className="text-gray-600">Welcome, {user?.fullName}</span>
+                <span className="text-gray-600">Welcome, {user?.name}</span>
                 <a
                   href={
                     user?.role === "employer"
@@ -70,7 +70,7 @@ const Header = () => {
               <>
                 <a
                   href="/login"
-                  className="text-gray-600 hover:text-gray-900 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-gray-500"
+                  className="text-gray-600 hover:text-gray-900 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-gray-200"
                 >
                   Login
                 </a>
