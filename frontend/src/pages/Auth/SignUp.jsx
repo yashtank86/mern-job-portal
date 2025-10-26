@@ -243,7 +243,7 @@ const SignUp = () => {
                   formState.errors.fullName
                     ? "border-red-500"
                     : "border-gray-300"
-                } focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
+                } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="Enter your full name"
               />
             </div>
@@ -268,7 +268,7 @@ const SignUp = () => {
                 onChange={handleInputChange}
                 className={`w-full pl-10 pr-4 py-3 rounded-lg border ${
                   formState.errors.email ? "border-red-500" : "border-gray-300"
-                } focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
+                } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="name@example.com"
               />
             </div>
@@ -295,8 +295,9 @@ const SignUp = () => {
                   formState.errors.password
                     ? "border-red-500"
                     : "border-gray-300"
-                } focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
+                } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="Create a strong password"
+                autocomplete="new-password"
               />
               <button
                 type="button"

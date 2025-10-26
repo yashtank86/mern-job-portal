@@ -157,7 +157,7 @@ const Login = () => {
             account
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} autoComplete="on" className="space-y-6">
           {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -172,9 +172,8 @@ const Login = () => {
                 onChange={handleInputChange}
                 className={`w-full pl-10 pr-4 py-3 rounded-lg border ${
                   formState.errors.email ? "border-red-500" : "border-gray-300"
-                } focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
+                } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="name@example.com"
-                autoComplete="email"
               />
             </div>
             {formState.errors.email && (
@@ -200,8 +199,9 @@ const Login = () => {
                   formState.errors.password
                     ? "border-red-500"
                     : "border-gray-300"
-                } focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
+                } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="Enter password"
+                autocomplete="new-password"
               />
               <button
                 type="button"
