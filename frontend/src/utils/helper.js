@@ -87,3 +87,10 @@ export const validateAvatar = (file) => {
 //     delete errors[key];
 //   }
 // });
+
+export const formatINR = (amount) =>
+  new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0, // optional
+  }).format(amount);
