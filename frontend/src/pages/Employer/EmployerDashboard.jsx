@@ -135,10 +135,10 @@ const EmployerDashboard = () => {
               subtitle="Your latest job postings"
               headerAction={
                 <button
-                  className="text-sm text-gray-500 hover:text-blue-600 font-medium bg-gray-50 hover:bg-blue-50 px-3 py-1 rounded-lg border border-gray-200 cursor-pointer"
+                  className="text-sm text-blue-600 hover:text-blue-700 font-medium cursor-pointer"
                   onClick={() => navigate("/manage-jobs")}
                 >
-                  View All
+                  View all
                 </button>
               }
             >
@@ -156,10 +156,10 @@ const EmployerDashboard = () => {
               subtitle="Latest candidate applications"
               headerAction={
                 <button
-                  className="text-sm text-gray-500 hover:text-blue-600 font-medium bg-gray-50 hover:bg-blue-50 px-3 py-1 rounded-lg border border-gray-200 cursor-pointer"
+                  className="text-sm text-blue-600 hover:text-blue-700 font-medium cursor-pointer"
                   onClick={() => navigate("/manage-jobs")}
                 >
-                  View All
+                  View all
                 </button>
               }
             >
