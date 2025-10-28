@@ -94,3 +94,12 @@ export const formatINR = (amount) =>
     currency: "INR",
     maximumFractionDigits: 0, // optional
   }).format(amount);
+
+export const getInitials = (name) => {
+  return name
+    .split(" ")
+    .map((word) => word.charAt(0))
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+};
