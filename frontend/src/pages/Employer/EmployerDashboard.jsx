@@ -100,7 +100,7 @@ const EmployerDashboard = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className="max-w-7xl mx-auto space-y-8 mb-96">
+        <div className="max-w-7xl mx-auto space-y-8">
           {/* Dashboard stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <StatCard
