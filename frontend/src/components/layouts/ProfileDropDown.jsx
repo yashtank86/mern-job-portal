@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const ProfileDropDown = ({
   isOpen,
@@ -10,6 +11,7 @@ const ProfileDropDown = ({
   onLogout,
 }) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   return (
     <div className="relative">
@@ -45,7 +47,7 @@ const ProfileDropDown = ({
           <a
             onClick={() =>
               navigate(
-                userRole === "jobseeker" ? "/profile" : "/company-profile"
+                user.role === "jobseeker" ? "/profile" : "/company-profile"
               )
             }
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer"
