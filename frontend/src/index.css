@@ -18,3 +18,28 @@
 }
 
 
+
+/* 🌐 Global scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;            /* Thin width */
+  height: 6px;           /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Or a subtle background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.6); /* Tailwind’s slate-500 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 116, 139, 0.8);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;           /* Thin scrollbar */
+  scrollbar-color: #64748b transparent; /* thumb color | track color */
+}
