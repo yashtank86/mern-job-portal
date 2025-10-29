@@ -11,9 +11,24 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  
+  const [user, setUser] = useState(() => {
+    // ✅ Initialize synchronously from localStorage
+    try {
+      const storedUser = localStorage.getItem("user");
+      return storedUser ? JSON.parse(storedUser) : null;
+    } catch (e) {
+      console.error("Error parsing stored user", e);
+      return null;
+    }
+  });
+
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    const token = localStorage.getItem("token");
+    return !!token;
+  });
+
   const [loading, setLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     checkAuthStatus();
@@ -28,6 +43,9 @@ export const AuthProvider = ({ children }) => {
         const userData = JSON.parse(userStr);
         setUser(userData);
         setIsAuthenticated(true);
+      } else {
+        setUser(null);
+        setIsAuthenticated(false);
       }
     } catch (error) {
       console.error("Auth check Failed", error);
