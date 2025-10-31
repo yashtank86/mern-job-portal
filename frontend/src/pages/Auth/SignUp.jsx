@@ -297,7 +297,7 @@ const SignUp = () => {
                     : "border-gray-300"
                 } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors `}
                 placeholder="Create a strong password"
-                autocomplete="new-password"
+                autoComplete="new-password"
               />
               <button
                 type="button"
