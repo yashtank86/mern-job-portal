@@ -136,7 +136,7 @@ const EmployerProfilePage = () => {
                     <img
                       src={profileData.avatar || null}
                       alt="Avatar"
-                      className="w-20 h-20 rounded-full object-cover border-4 border-blue-100"
+                      className="w-20 h-20 rounded-full object-cover border-4 border-blue-50"
                     />
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">
