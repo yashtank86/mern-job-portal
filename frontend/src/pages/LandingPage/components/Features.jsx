@@ -14,7 +14,7 @@ const Features = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Weather you're looking for next opportunity or perfect candidate, We
-            have the tools and features to make it happen.
+            have the tools and features to make it happen
           </p>
         </div>
 

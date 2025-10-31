@@ -52,7 +52,7 @@ const Analytics = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Real-time insights and data driven results that showcase the power
-            of our platform in connecting talent with opportunities.
+            of our platform in connecting talent with opportunities
           </p>
         </motion.div>
         {/* stats cards */}

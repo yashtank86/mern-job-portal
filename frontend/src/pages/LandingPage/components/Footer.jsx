@@ -17,7 +17,7 @@ const Footer = () => {
               </div>
               <p className={`text-sm text-gray-600 max-w-md mx-auto`}>
                 Connecting talented professionals with innovative companies
-                worldwide. Your career success is our mission.
+                worldwide Your career success is our mission
               </p>
             </div>
             {/* Copyrights */}

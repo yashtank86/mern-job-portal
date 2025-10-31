@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 
 const Header = () => {
-  const {user, isAuthenticated} = useAuth()
+  const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   return (
@@ -70,7 +70,7 @@ const Header = () => {
               <>
                 <a
                   href="/login"
-                  className="text-gray-600 hover:text-gray-900 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-gray-200"
+                  className="text-gray-600 hover:text-gray-900 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-gray-100"
                 >
                   Login
                 </a>
