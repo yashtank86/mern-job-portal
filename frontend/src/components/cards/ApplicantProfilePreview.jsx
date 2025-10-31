@@ -6,6 +6,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import moment from "moment";
 import toast from "react-hot-toast";
 import StatusBadge from "../StatusBadge";
+import "../../index.css"
 
 const statusOptions = ["Applied", "In Review", "Rejected", "Accepted"];
 
@@ -45,7 +46,7 @@ const ApplicantProfilePreview = ({
 
   return (
     <div className="fixed inset-0 bg-[rgba(0,0,0,0.2)] bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-white rounded-xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto hide-scrollbar">
         {/* Modal Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h3 className="text-lg font-semibold text-gray-900">
