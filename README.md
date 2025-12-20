@@ -1,6 +1,6 @@
 # 💼 MERN Stack Job Portal
 
-A full-featured **Job Portal Web Application** built with the **MERN Stack (MongoDB, Express, React, Node.js)** that connects **admin** and **Job Seekers**.  
+**Job Portal with admin dashboard** built with the **MERN Stack (MongoDB, Express, React, Node.js)** that connects **admin** and **Job Seekers**.  
 Employers can post and manage jobs, while job seekers can explore, filter, and apply for jobs effortlessly.
 
 > 🧠 Designed to showcase strong **frontend + backend integration** skills.
